@@ -53,6 +53,7 @@ class TeamsController < ApplicationController
     if current_user == @team.owner
       @team.owner_id = @assign.user_id
       @team.save
+      TeamTransferOwnershipMailer.transfer_ownership_mail(@team).deliver
       redirect_to @team, notice: I18n.t('views.messages.transfer_ownership')
     else
       redirect_to @team

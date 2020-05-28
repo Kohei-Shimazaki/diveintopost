@@ -220,6 +220,7 @@ ja:
       update_team: 'チーム更新に成功しました！'
       delete_team: 'チーム削除に成功しました！'
       transfer_ownership: 'リーダー権を委譲しました！'
+      transfer_ownership_mail: 'リーダー権の委譲'
       update_profile: 'プロフィールを編集しました！'
       complete_registration: '登録完了'
       edit_article: '記事を編集する'
@@ -258,7 +259,7 @@ ja:
       delete: '削除'
       create: '作成'
       invite: '招待'
-      transfer_ownership: '権限移動'
+      transfer_ownership: 'リーダー権委譲'
     top:
       line1: 'このアプリケーションは、チームごと、議題ごとに別れて'
       line2: '特定のイシュー（議題）をメンバーで見やすく共有するためのアプリケーションです'
