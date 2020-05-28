@@ -1,5 +1,6 @@
 class AgendasController < ApplicationController
-  # before_action :set_agenda, only: %i[show edit update destroy]
+  #before_action :set_agenda, only: %i[show edit update destroy]
+  before_action :set_agenda, only: :destroy
 
   def index
     @agendas = Agenda.all
