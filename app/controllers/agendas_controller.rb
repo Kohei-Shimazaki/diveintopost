@@ -24,8 +24,12 @@ class AgendasController < ApplicationController
   end
 
   def destroy
-    @agenda.destroy
-    redirect_to dashboard_url
+    if agenda_author_or_team_owner?(@agenda)
+      @agenda.destroy
+      redirect_to dashboard_url
+    else
+      redirect_to dashboard_url
+    end
   end
 
   private
@@ -36,5 +40,9 @@ class AgendasController < ApplicationController
 
   def agenda_params
     params.fetch(:agenda, {}).permit %i[title description]
+  end
+
+  def agenda_author_or_team_owner?(agenda)
+    agenda.user == current_user || agenda.team.owner == current_user
   end
 end
