@@ -1,4 +1,5 @@
 class AgendasController < ApplicationController
+  include AgendasHelper
   #before_action :set_agenda, only: %i[show edit update destroy]
   before_action :authenticate_user!
   before_action :set_agenda, only: :destroy
@@ -40,9 +41,5 @@ class AgendasController < ApplicationController
 
   def agenda_params
     params.fetch(:agenda, {}).permit %i[title description]
-  end
-
-  def agenda_author_or_team_owner?(agenda)
-    agenda.user == current_user || agenda.team.owner == current_user
   end
 end

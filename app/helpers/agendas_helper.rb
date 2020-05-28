@@ -6,4 +6,8 @@ module AgendasHelper
       agenda_path
     end
   end
+
+  def agenda_author_or_team_owner?(agenda)
+    agenda.user == current_user || agenda.team.owner == current_user
+  end
 end
