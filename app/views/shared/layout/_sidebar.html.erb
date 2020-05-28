@@ -36,7 +36,7 @@
                 <%= agenda.title %>
                 <% if agenda_author_or_team_owner?(agenda) %>
                   <object>
-                    <%= link_to '削除', agenda, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-sm btn-danger d-inline-block' %>
+                    <%= link_to I18n.t('views.button.delete'), agenda, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-sm btn-danger d-inline-block' %>
                   </object>
                 <% end %>
                 <i class="right fa fa-angle-left"></i>
