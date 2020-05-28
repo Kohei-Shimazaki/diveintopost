@@ -10,7 +10,7 @@
               <%= image_tag default_img(@team.icon_url), class: 'img' %><br>
               <%= @team.name %>
             </div>
-            <% if current_user == @team.owner %>
+            <% if team_owner?(@team) %>
               <%= link_to I18n.t('views.messages.edit_team'), edit_team_path(@team), class: 'btn btn-success btn-block mt-3' %>
             <% end %>
           </div>
@@ -44,7 +44,7 @@
                       <td><%= image_tag 'default.jpg', size: '40x40' %></td>
                       <td><%= assign.user.email %></td>
                       <td>
-                        <% if current_user == @team.owner || current_user == assign.user %>
+                        <% if team_owner?(@team) || current_user == assign.user %>
                           <%= link_to I18n.t('views.button.delete'), team_assign_path(@team, assign), method: :delete, class: 'btn btn-sm btn-danger' %>
                         <% end %>
                       </td>

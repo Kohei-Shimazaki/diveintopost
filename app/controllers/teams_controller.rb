@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  include TeamHelper
   before_action :authenticate_user!
   before_action :set_team, only: %i[show edit update destroy]
 
@@ -15,7 +16,9 @@ class TeamsController < ApplicationController
     @team = Team.new
   end
 
-  def edit; end
+  def edit
+    redirect_to @team unless team_owner?(@team)
+  end
 
   def create
     @team = Team.new(team_params)
